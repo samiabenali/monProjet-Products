@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../domain/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,19 +9,14 @@ import { Product } from '../../domain/product';
 })
 export class ProductListComponent implements OnInit {
 
-data: Product[];
+public data: Product[];
 
-  constructor() {
-    this.data = [
-      {code: 'P100', libelle: 'cafe', prixUnitaire: 500.5},
-      {code: 'P200', libelle: 'cafe', prixUnitaire: 500.5},
-      {code: 'P300', libelle: 'cafe', prixUnitaire: 500.5},
-      {code: 'P400', libelle: 'cafe', prixUnitaire: 500.5},
-      {code: 'P500', libelle: 'eau gazifiée', prixUnitaire: 500.5}
-    ];
+  constructor(private _service: ProductService) {// déclarer une dépendance sur
+
   }
 
-  ngOnInit() {
+  ngOnInit() { // Equivalent @PostConstruct de Java EE
+    this.data = this._service.getProducts();
   }
 
 }
