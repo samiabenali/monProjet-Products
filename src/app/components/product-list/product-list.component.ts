@@ -16,7 +16,9 @@ public data: Product[];
   }
 
   ngOnInit() { // Equivalent @PostConstruct de Java EE
-    this.data = this._service.getProducts();
+    // this.data = this._service.getProducts();
+    this._service.getProducts().subscribe(result => {this.data = result; }
+    );
   }
 
 }
