@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Route, Routes } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RoutingModule } from './routing-module/routing.module';
 
 const routes: Routes = [
 { path: 'welcome', component: WelcomeComponent},
@@ -31,7 +32,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RoutingModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
